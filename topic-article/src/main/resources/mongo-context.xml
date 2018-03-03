@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+       http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
+
+    <mongo:mongo id="replicaSetMongo" replica-set="172.27.137.12:50000">
+
+        <mongo:options
+                connections-per-host="8"
+                threads-allowed-to-block-for-connection-multiplier="4"
+                connect-timeout="1000"
+                max-wait-time="1500"
+                auto-connect-retry="true"
+                socket-keep-alive="true"
+                socket-timeout="1500"
+                slave-ok="true"
+                write-number="1"
+                write-timeout="0"
+                write-fsync="true"
+        />
+    </mongo:mongo>
+
+    <mongo:db-factory id="erdMongoDbFactory" dbname="sloth_erd" mongo-ref="replicaSetMongo"/>
+
+    <mongo:db-factory id="jubaMongoDbFactory" dbname="sloth_juba" mongo-ref="replicaSetMongo"/>
+
+    <mongo:db-factory id="tiebaMongoDbFactory" dbname="sloth_tieba" mongo-ref="replicaSetMongo"/>
+
+    <bean id="erdMongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="erdMongoDbFactory"/>
+    </bean>
+
+    <bean id="jubaMongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="jubaMongoDbFactory"/>
+    </bean>
+
+    <bean id="tiebaMongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="tiebaMongoDbFactory"/>
+    </bean>
+
+
+
+</beans>

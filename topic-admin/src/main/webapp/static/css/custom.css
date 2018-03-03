@@ -1,0 +1,39 @@
+@charset "utf-8";
+.closeIcon{
+    font-size:12px;
+}
+.imageContain{
+    width: 200px;
+    height: auto;
+}
+.ms{float:left;position: absolute; bottom: 0;left: 0; width: 5px; height: 5px; background: #0F3A56;clear: inherit }
+.fa{display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-family: FontAwesome;
+    font-size: inherit;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;}
+
+.contentClose{
+    float: left;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: url("http://res.1931.yystatic.com/dream/images/1931v2/closebg_05f6735.png") center center no-repeat #404040;
+    background-image: url(http://res.1931.yystatic.com/dream/images/1931v2/closebg_05f6735.png);
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-size: initial;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(64, 64, 64);
+    cursor: pointer;
+}

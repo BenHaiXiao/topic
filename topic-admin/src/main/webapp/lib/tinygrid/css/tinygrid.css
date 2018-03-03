@@ -1,0 +1,344 @@
+@charset "UTF-8";
+/* tinygrid连接样式 */
+
+/* tinygrid全局样式 */
+.globalContainerClass {
+	position: relative;
+	overflow: hidden;
+	color: #000;
+	border: 1px solid #e6e7e8;
+}
+
+/* 标题栏的样式 */
+.titleContainerClass {
+	background: #E3EBEE;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+	height: 26px;
+	line-height: 26px;
+}
+
+/* 标题的样式 */
+.titleClass {
+	font-size: 12px;
+	font-weight: bold;
+	float: left;
+	display: inline;
+	padding-left: 5px;
+	color: #333;
+}
+
+/* 工具栏样式 */
+.buttonContainerClass {
+	display: block;
+	padding-top: 1px;
+	padding-bottom: 4px;
+	padding-right: 5px;
+}
+
+.buttonContainerClass .innerContainer {
+	float: left;
+	padding: 1px;
+}
+.buttonContainerClass .innerContainerRight {
+	float: right;
+	display: inline;
+	padding: 1px;
+}
+
+.buttonContainerClass .btn {
+    margin-right: 10px;
+}
+
+/* 表格标题区域的样式 */
+.tableHeadContainerClass {
+	overflow-y: scroll;
+	width: 100%;
+}
+
+.globalContainerClass .no-border-top {
+	border-top: 0px;
+}
+
+.tableHeadContainerClass  table {
+	margin-bottom: 0 !important;
+	border-bottom: 0 !important;
+}
+
+/* 表格数据区域的样式 */
+.tableContainerClass {
+}
+
+.tableContainerClass .editableClass {
+}
+.tableContainerClass .editableClass-left {
+	text-align: left;
+}
+.tableContainerClass .editableClass-right {
+	text-align: right;
+}
+.tableContainerClass .editableClass-center {
+	text-align: center;
+}
+.tableContainerClass .editableClass:focus {
+	text-align: left;
+}
+
+.tableContainerClass .show-detail.show-detail-open {
+    background: url("../images/row-openclose.png") no-repeat 0 -23px !important;
+}
+.tableContainerClass .show-detail.show-detail-close {
+    background: url("../images/row-openclose.png") no-repeat 0 0;
+}
+.tableContainerClass .show-detail {
+    margin-top: 3px;
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+}
+.tableContainerClass .grid-details {
+    background-color: #e5e5e5 !important;
+}
+
+/* 信息提示区域 */
+.messageTipContainerClass {
+	text-align: center;
+	background: #ffffff;
+	font-size: 14px;
+}
+
+.messageGroupContainerClass {
+	height: 25px;
+	line-height:25px;
+	position: relative;
+	padding-left: 5px;
+}
+
+.loadingMessageTipClass {
+	width: 22px;
+	height: 22px;
+	background: url(../images/load.gif) no-repeat center;
+}
+
+.errorMessageTipClass {
+	text-align: left;
+}
+
+/* 统计栏 */
+.statisticsContainerClass {
+	background-color: #E3EBEE;
+	overflow: hidden;
+	width: 100%;
+	border-top: 1px solid #A9ADAE;
+	height: 22px;
+}
+
+.statisticsContainerClass table th {
+	text-align: left;
+	font-size: 13px;
+	border-right: 1px solid #A9ADAE;
+	overflow: hidden;
+	vertical-align: middle;
+	height: 22px;
+	line-height: 22px;
+	white-space: nowrap;
+	font-weight: normal;
+	padding-left: 3px;
+}
+
+/* 分页栏样式 */
+.pagerContainerClass {
+	background-color: #F1F5F8;
+	overflow: hidden;
+	height: 25px;
+	line-height: 25px;
+	white-space: nowrap;
+	color: #4D4D4D;
+	border-top: 1px solid #e6e7e8;
+	font-size: 12px;
+}
+
+.pagerContainerClass .group {
+	float: left;
+	display: inline;
+	margin: 0px 3px;
+	height: 22px;
+	line-height: 22px;
+}
+.pagerContainerClass .group select {
+	margin-top: 2px;
+	border: 1px solid #E3EBEE;
+	color: #4D4D4D;
+}
+.pagerContainerClass .group input {
+	margin: 2px 0;
+	border: 1px solid #E3EBEE;
+	width: 40px;
+	color: #4D4D4D;
+}
+.pagerContainerClass  div.pbutton {
+	float: left;
+	display: inline;
+	width: 16px;
+	height: 22px;
+	cursor: pointer;
+	overflow: hidden;
+	background-image: url("../images/table-icon.png");
+	background-repeat: no-repeat;
+	border: 1px solid #F1F5F8;
+}
+* html .pagerContainerClass  div.pbutton {
+	*background-image: url("../images/table-icon8.png"); /* ie6 */
+}
+.pagerContainerClass  div.pbutton:hover {
+	border: 1px solid #e6e7e8;
+}
+
+.pagerContainerClass .pcontrol {
+	overflow: visible;
+	*padding-top : 3px;
+}
+
+.pagerContainerClass .pageStat {
+	position: relative;
+	overflow: visible;
+}
+
+.pagerContainerClass .first {
+	background-position: 0px 5px;
+	margin-left: 10px;
+}
+
+.pagerContainerClass .prev {
+	background-position: 0px -16px;
+	margin-left: 5px;
+}
+
+.pagerContainerClass .next {
+	background-position: 0px -35px;
+	margin-left: 5px;
+}
+
+.pagerContainerClass .last {
+	background-position: 0px -55px;
+	margin-left: 5px;
+}
+
+.pagerContainerClass .reload {
+	background-position: 0px -138px;
+	margin-left: 5px;
+}
+
+.pagerContainerClass .reload.loading {
+	background: url(../images/load.gif) no-repeat center;
+}
+.status-bar {
+	font-size: 11px;
+	color: #666666;
+	float: right;
+	margin-right: 5px;	
+}
+
+/* 行样式 */
+/* 白色 */
+.tableContainerClass table tbody .white {
+	background-color: white;
+}
+
+/* 红色 */
+.tableContainerClass table tbody .red {
+	background-color: red;
+}
+
+/* 淡红色 */
+.tableContainerClass table tbody .lightred {
+	background-color: #FF9797;
+}
+
+.tableContainerClass table tbody .ECF3FC {
+	background-color: #ECF3FC;
+}
+.tableContainerClass table tbody .ffccff {
+	background-color: #ffccff;
+}
+
+/* 灰色 */
+.tableContainerClass table tbody .gray {
+	background-color: gray;
+}
+
+/* 蓝色 */
+.tableContainerClass table tbody .blue {
+	background-color: blue;
+}
+
+/* 绿色 */
+.tableContainerClass table tbody .green {
+	background-color: green;
+}
+
+/* 浅绿色 */
+.tableContainerClass table tbody .aqua {
+	background-color: aqua;
+}
+.tableContainerClass table tbody .ccffff {
+	background-color: #ccffff;
+}
+
+/* 紫红色 */
+.tableContainerClass table tbody .fuchsia {
+	background-color: fuchsia;
+}
+
+.tableContainerClass table tbody .lime {
+	background-color: lime;
+}
+
+/* 栗色 */
+.tableContainerClass table tbody .maroon {
+	background-color: maroon;
+}
+
+.tableContainerClass table tbody .navy {
+	background-color: navy;
+}
+
+/* 橄榄色 */
+.tableContainerClass table tbody .olive {
+	background-color: #CACA00;
+}
+
+/* 橙色 */
+.tableContainerClass table tbody .orange {
+	background-color: orange;
+}
+
+/* 紫色 */
+.tableContainerClass table tbody .purple {
+	background-color: purple;
+}
+
+/* 银色 */
+.tableContainerClass table tbody .silver {
+	background-color: silver;
+}
+
+.tableContainerClass table tbody .teal {
+	background-color: teal;
+}
+
+/* 黄色 */
+.tableContainerClass table tbody .yellow {
+	background-color: yellow;
+}
+
+/* 浅黄色  */
+.tableContainerClass table tbody .lightyellow {
+	background-color: #FFF9AD;
+}
+
+.tableContainerClass table tbody .lightgreen {
+	background-color:#E2FBFF;
+}
