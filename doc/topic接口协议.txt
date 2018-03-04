@@ -1,0 +1,596 @@
+1、发表话题
+[POST] /app/{appid}/folder/{folderPath}/article
+[PARAMS]
+ticket:用户票据，用于用户权限验证
+article:{
+	title:标题
+	brief:简介
+	tags:[
+		{
+			name:标签名
+		}
+	]
+	content:{
+		size:段落数量
+		sections:[
+			{
+				type:段落类型(text/image/audio/vidio)
+				attr:{
+					排版样式
+				}
+				data:{
+					段落内容
+				}
+			}
+		]
+	}
+}
+[RESPONSE]
+{
+	code:200
+	article:{
+		id:话题ID
+		title:标题
+		brief:简介
+		tags:[
+			{
+				name:标签名
+			}
+		]
+		content:{
+			size:段落数量
+			sections:[
+				{
+					type:段落类型(text/image/audio/vidio)
+					attr:{
+						排版样式
+					}
+					data:{
+						段落内容
+					}
+				}
+			]
+		}
+		creator:{
+			uid:用户ID
+			nick:昵称
+			avatar:头像
+		}
+		utime:更新时间
+		ctime:创建时间
+	}
+}
+
+2、删除话题
+[DELETE]/app/{appid}/folder/{folderPath}/article/{articleId}
+[PARAMS]
+tikcet:用户票据，用于用户权限验证
+[RESPONSE]
+{
+	code:200
+}
+
+3、获取话题
+
+[GET]/app/{appid}/folder/{folderPath}/article/{articleId}
+[RESPONSE]
+{
+	code:200
+	article:{
+		id:话题ID
+		title:标题
+		brief:简介
+		tags:[
+			{
+				name:标签名
+			}
+		]
+		content:{
+			size:段落数量
+			sections:[
+				{
+					type:段落类型(text/image/audio/vidio)
+					attr:{
+						排版样式
+					}
+					data:{
+						段落内容
+					}
+				}
+			]
+		}
+		creator:{
+			uid:用户ID
+			nick:昵称
+			avatar:头像
+		}
+		utime:更新时间
+		ctime:创建时间
+	}
+}
+
+4、话题列表
+
+[GET]/app/{appid}/folder/{folderPath}/articles
+[PARAMS]
+limit=返回话题的话量
+last=上一次列表最后一项话题
+[RESPONSE]
+{
+	code:200
+	page:{
+		total:总数
+		last:列表最后一项偏移值
+		count:当前列表数量
+		more:是否存在下一页
+	}
+	articles:[
+		{
+			id:话题ID
+			title:标题
+			brief:简介
+			tags:[
+				{
+					name:标签名
+				}
+			]
+			thumbs:{
+				size:缩略图数量
+				images:[
+					{
+						url:图片地址
+						width:图片宽度
+						height:图片高度
+					}
+				]
+			}
+			stats:{
+				acclaimCnt:点赞数量
+				postCnt:评论数量
+			}
+			creator:{
+				uid:用户ID
+				nick:昵称
+				avatar:头像
+			}
+			utime:更新时间
+			ctime:创建时间
+		}
+	]
+}
+
+5、新建目录
+[POST]/app/{appid}/folder/{folderPath}
+[PARAMS]
+tikcet:用户票据，用于用户权限验证
+folder:{
+	name:名称
+	icon:图标地址，若上传则传入上传的参数名以@为前缀，例如@param
+	desc:描述
+	tags:[
+		{
+			name:标签名
+		}
+	]
+	thumbs:{
+		size:缩略图数量
+		images:[
+			{
+				width:图片宽度
+				height:图片高度
+				url:图片地址，若上传则传入上传的参数名以@为前缀，例如@param
+			}
+		]
+	}
+	exts:{
+		key:扩展字段，类型为字符串
+	}
+}
+[RESPONSE]
+{
+	code:200
+	folder:{
+		id:目录唯一标识符
+		path:目录路径
+		name:名称
+		icon:图标地址，若上传则传入上传的参数名以@为前缀，例如@param
+		desc:描述
+		tags:[
+			{
+				name:标签名
+			}
+		]
+		thumbs:{
+			size:缩略图数量
+			images:[
+				{
+					width:图片宽度
+					height:图片高度
+					url:图片地址，若上传则传入上传的参数名以@为前缀，例如@param
+				}
+			]
+		}
+		exts:{
+			key:扩展字段，类型为字符串
+		}
+		creator:{
+			uid:用户ID
+			nick:昵称
+			avatar:头像
+		}
+	}
+}
+
+6、删除目录
+[DELETE]/app/{appid}/folder/{folderPath}
+[PARAMS]
+ticket:用户票据，用于用户权限验证
+[RESPONSE]
+{
+	code:200
+}
+
+7、获取目录
+[GET]/app/{appid}/folder/{folderPath}
+[RESPONSE]
+{
+	code:200
+	folder:{
+		id:目录唯一标识符
+		path:目录路径
+		name:名称
+		icon:图标地址，若上传则传入上传的参数名以@为前缀，例如@param
+		desc:描述
+		tags:[
+			{
+				name:标签名
+			}
+		]
+		thumbs:{
+			size:缩略图数量
+			images:[
+				{
+					width:图片宽度
+					height:图片高度
+					url:图片地址，若上传则传入上传的参数名以@为前缀，例如@param
+				}
+			]
+		}
+		stats:{
+			followCnt:关注数量
+		}
+		exts:{
+			key:扩展字段，类型为字符串
+		}
+		creator:{
+			uid:用户ID
+			nick:昵称
+			avatar:头像
+		}
+		utime:更新时间
+		ctime:创建时间
+	}
+}
+
+8、新增关注
+[POST]/app/{appid}/folder/{folderPath}/follow
+[PARAMS]
+ticket:用户票据，用于获取用户的基本信息
+[RESPONSE]
+{
+	code:200
+	follow:{
+		user:{
+			uid:用户ID
+			nick:昵称
+			avatar:头像
+		}
+		ctime:关注时间
+	}
+}
+
+9、取消关注
+[DELETE]/app/{appid}/folder/{folderPath}/follow
+[PARAMS]
+ticket:用户票据，用于获取用户的基本信息
+[RESPONSE]
+{
+	code:200
+}
+
+10、确认关注
+[GET]/app/{appid}/folder/{folderPath}/follow
+[PARAMS]
+tikcet:用户票据，用于获取用户的基本信息
+[RESPONSE]
+{
+	code:200
+	follow:{
+		user:{
+			uid:用户ID
+			nick:昵称
+			avatar:头像
+		}
+		ctime:关注时间
+	}
+}
+
+11、关注列表
+[GET]/app/{appid}/folder/{folderPath}/follows
+[PARAMS]
+tikcet:用户票据，用于获取用户的基本信息
+limit:列表数量
+last:上一次列表最后一项偏移值
+[RESPONSE]
+{
+	code:200
+	page:{
+		total:总数
+		last:列表最后一项偏移值
+		count:当前列表数量
+		more:是否存在下一页
+	}
+	follows:[
+		{
+			user:{
+				uid:用户ID
+				nick:昵称
+				avatar:头像
+			}
+			ctime:关注时间
+		}
+	]
+}
+
+12、新增点赞
+[POST]/app/{appid}/folder/{folderPath}/acclaim
+[PARAMS]
+ticket:用户票据，用于获取用户的基本信息
+[RESPONSE]
+{
+	code:200
+	acclaim:{
+		ctime:点赞时间
+	}
+}
+
+13、取消点赞
+[DELETE]/app/{appid}/folder/{folderPath}/acclaim
+[PARAMS]
+ticket:用户票据，用于获取用户的基本信息
+[RESPONSE]
+{
+	code:200
+}
+
+14、确认点赞
+[GET]/app/{appid}/folder/{folderPath}/acclaim
+[PARAMS]
+tikcet:用户票据，用于获取用户的基本信息
+[RESPONSE]
+{
+	code:200
+	acclaim:{
+		ctime:点赞时间
+	}
+}
+
+15、发表评论
+[POST]/app/{appid}/folder/{folderPath}/article/{articleId}/post
+[PARAMS]
+ticket:用户票据，用于用户权限验证
+replyId:回复评论的ID，若无则为空
+post:{
+	content:{
+		size:段落数量
+		sections:[
+			{
+				type:段落类型(text/image/audio/vidio)
+				attr:{
+					排版样式
+				}
+				data:{
+					段落内容
+				}
+			}
+		]
+	}
+}
+[RESPONSE]
+{
+	code:200
+	post:{
+		id:评论ID
+		replyId:回复评论的ID
+		content:{
+			size:段落数量
+			sections:[
+				{
+					type:段落类型(text/image/audio/vidio)
+					attr:{
+						排版样式
+					}
+					data:{
+						段落内容
+					}
+				}
+			]
+		}
+		creator:{
+			uid:用户ID
+			nick:昵称
+			avatar:头像
+		}
+		utime:更新时间
+		ctime:创建时间
+	}
+	replyPosts:{
+		id:{
+			id:评论ID
+			replyId:回复评论的ID
+			content:{
+				size:段落数量
+				sections:[
+					{
+						type:段落类型(text/image/audio/vidio)
+						attr:{
+							排版样式
+						}
+						data:{
+							段落内容
+						}
+					}
+				]
+			}
+			creator:{
+				uid:用户ID
+				nick:昵称
+				avatar:头像
+			}
+			utime:更新时间
+			ctime:创建时间
+		}
+	}
+}
+
+2、删除评论
+[DELETE]/app/{appid}/folder/{folderPath}/article/{articleId}/post/{postId}
+[PARAMS]
+tikcet:用户票据，用于用户权限验证
+[RESPONSE]
+{
+	code:200
+}
+
+3、获取评论
+
+[GET]/app/{appid}/folder/{folderPath}/article/{articleId}/post/{postId}
+[RESPONSE]
+{
+	code:200
+	post:{
+		id:评论ID
+		replyId:回复评论的ID
+		content:{
+			size:段落数量
+			sections:[
+				{
+					type:段落类型(text/image/audio/vidio)
+					attr:{
+						排版样式
+					}
+					data:{
+						段落内容
+					}
+				}
+			]
+		}
+		creator:{
+			uid:用户ID
+			nick:昵称
+			avatar:头像
+		}
+		utime:更新时间
+		ctime:创建时间
+	}
+	replyPosts:{
+		id:{
+			id:评论ID
+			replyId:回复评论的ID
+			content:{
+				size:段落数量
+				sections:[
+					{
+						type:段落类型(text/image/audio/vidio)
+						attr:{
+							排版样式
+						}
+						data:{
+							段落内容
+						}
+					}
+				]
+			}
+			creator:{
+				uid:用户ID
+				nick:昵称
+				avatar:头像
+			}
+			utime:更新时间
+			ctime:创建时间
+		}
+	}
+}
+
+
+4、评论列表
+
+[GET]/app/{appid}/folder/{folderPath}/article/{articleId}/posts
+[PARAMS]
+limit=返回评论的数量
+last=上一次列表最后一项偏移值
+[RESPONSE]
+{
+	code:200
+	page:{
+		total:总数
+		last:列表最后一项偏移值
+		count:当前列表数量
+		more:是否存在下一页
+	}
+	posts:[
+		{
+			id:评论ID
+			replyId:回复评论的ID
+			content:{
+				size:段落数量
+				sections:[
+					{
+						type:段落类型(text/image/audio/vidio)
+						attr:{
+							排版样式
+						}
+						data:{
+							段落内容
+						}
+					}
+				]
+			}
+			creator:{
+				uid:用户ID
+				nick:昵称
+				avatar:头像
+			}
+			utime:更新时间
+			ctime:创建时间
+		}
+	]
+	replyPosts:{
+		id:{
+			id:评论ID
+			replyId:回复评论的ID
+			content:{
+				size:段落数量
+				sections:[
+					{
+						type:段落类型(text/image/audio/vidio)
+						attr:{
+							排版样式
+						}
+						data:{
+							段落内容
+						}
+					}
+				]
+			}
+			creator:{
+				uid:用户ID
+				nick:昵称
+				avatar:头像
+			}
+			utime:更新时间
+			ctime:创建时间
+		}
+	}
+}
+
