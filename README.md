@@ -76,6 +76,7 @@ e)	话题列表（插入时间排序、更新时间排序）
 消息服务模块结构设计(基于kafaka)：
 
 ![](http://empfs.bs2dl.yy.com/bWQtMTUyMDQzMjMyNzQzMzhfMTUyMDQzMjMyNzQzNw.png)
+
 1. MessageDeliver：负责消息分发
 2. MessageBoxFinder：负责用户消息箱查找
 3. MsgBox：负责维护和组织所有的用户消息
