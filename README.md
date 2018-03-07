@@ -30,7 +30,7 @@ c)	关注及取消关注操作
 a)	评论总数
 b)	精选评论
 c)	我的评论
-d)	查看评论
+d)	查看评
 4.	点赞服务
 a)	点赞总数
 b)	是否已点赞
@@ -70,4 +70,16 @@ e)	话题列表（插入时间排序、更新时间排序）
 ##  话题接口
 
 详细见 doc目录 的topic接口协议.txt
+
+##  附属功能（topic-message消息服务）
+
+消息服务模块结构设计(基于kafaka)：
+
+![](http://empfs.bs2dl.yy.com/bWQtMTUyMDQzMjMyNzQzMzhfMTUyMDQzMjMyNzQzNw.png)
+1. MessageDeliver：负责消息分发
+2. MessageBoxFinder：负责用户消息箱查找
+3. MsgBox：负责维护和组织所有的用户消息
+4. FolderFinder：负责消息目录查找
+5. Folder：消息目录，用于消息分类
+6. MessageStore：负责消息存储
 
