@@ -6,7 +6,7 @@
 ##  模型定义
 
 topic将内容（话题）的层级分类使用类文件系统的模型进行描述，模型图如下：
-![](https://github.com/BenHaiXiao/topic/tree/master/doc/design/1.jpg)
+![IMAGE](https://github.com/BenHaiXiao/topic/blob/master/doc/design/1.jpg)
 
 1. App：描述具体的业务类型。如：业务基本信息描述、权限控制描述、资源限制信息等；
 2. Folder：描述具体的分类信息。如：网易新闻的分类（热门、头条、财经等），百度贴吧的各类吧（头条、fun兵、故事趴等）。topic支持对Folder的关注和点赞。Folder路径命名规范见下方（路径命名规范）；
@@ -54,15 +54,14 @@ e)	话题列表（插入时间排序、更新时间排序）
 0000c-00008-1ac23dfdfdfds3-21723dfdvdfd，表示000c目录下的0008子目录的ac23dfdfdfds3话题的1723dfdvdfd评论。
 
 ## 系统总体构架
-
-![](https://github.com/BenHaiXiao/topic/tree/master/doc/design/design.jpg)
+![image](https://github.com/BenHaiXiao/aconf/tree/master/doc/design/design.png)
 ## 数据流图
 
-![](https://github.com/BenHaiXiao/topic/tree/master/doc/data-flow/query.jpg)
+![image](https://github.com/BenHaiXiao/topic/tree/master/doc/data-flow/query.png)
 
-![](https://github.com/BenHaiXiao/topic/tree/master/doc/data-flow/insert.jpg)
+![image](https://github.com/BenHaiXiao/topic/tree/master/doc/data-flow/insert.png)
 
-![](https://github.com/BenHaiXiao/topic/tree/master/doc/data-flow/delete.jpg)
+![image](https://github.com/BenHaiXiao/topic/tree/master/doc/data-flow/delete.png)
 
 
 ## 存储结构
@@ -77,7 +76,7 @@ e)	话题列表（插入时间排序、更新时间排序）
 
 消息服务模块结构设计(基于kafaka)：
 
-![](https://github.com/BenHaiXiao/topic/tree/master/doc/message/message.jpg)
+![image](https://github.com/BenHaiXiao/topic/tree/master/doc/message/message.png)
 
 1. MessageDeliver：负责消息分发
 2. MessageBoxFinder：负责用户消息箱查找
