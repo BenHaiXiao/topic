@@ -6,7 +6,7 @@
 ##  模型定义
 
 topic将内容（话题）的层级分类使用类文件系统的模型进行描述，模型图如下：
-![](https://github.com/BenHaiXiao/topic/架构设计/design.jpg)
+![image](https://github.com/BenHaiXiao/topic/架构设计/design.jpg)
 
 1. App：描述具体的业务类型。如：业务基本信息描述、权限控制描述、资源限制信息等；
 2. Folder：描述具体的分类信息。如：网易新闻的分类（热门、头条、财经等），百度贴吧的各类吧（头条、fun兵、故事趴等）。topic支持对Folder的关注和点赞。Folder路径命名规范见下方（路径命名规范）；
@@ -55,14 +55,14 @@ e)	话题列表（插入时间排序、更新时间排序）
 
 ## 系统总体构架
 
-![](https://github.com/BenHaiXiao/topic/架构设计/design.jpg)
+![image](https://github.com/BenHaiXiao/topic/架构设计/design.jpg)
 ## 数据流图
 
-![](https://github.com/BenHaiXiao/topic/数据流图/query.jpg)
+![image](https://github.com/BenHaiXiao/topic/数据流图/query.jpg)
 
-![](https://github.com/BenHaiXiao/topic/数据流图/insert.jpg)
+![image](https://github.com/BenHaiXiao/topic/数据流图/insert.jpg)
 
-![](https://github.com/BenHaiXiao/topic/数据流图/delete.jpg)
+![image](https://github.com/BenHaiXiao/topic/数据流图/delete.jpg)
 
 
 ## 存储结构
@@ -77,7 +77,7 @@ e)	话题列表（插入时间排序、更新时间排序）
 
 消息服务模块结构设计(基于kafaka)：
 
-![](https://github.com/BenHaiXiao/topic/消息中心/message.jpg)
+![image](https://github.com/BenHaiXiao/topic/消息中心/message.jpg)
 
 1. MessageDeliver：负责消息分发
 2. MessageBoxFinder：负责用户消息箱查找
