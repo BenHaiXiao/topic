@@ -6,7 +6,7 @@
 ##  模型定义
 
 topic将内容（话题）的层级分类使用类文件系统的模型进行描述，模型图如下：
-![](http://empfs.bs2dl.yy.com/bWQtMTUyMDE1OTA0Njk5NzNfMTUyMDE1OTA0Njk5OA.png)
+![](https://github.com/BenHaiXiao/topic/架构设计/design.jpg)
 
 1. App：描述具体的业务类型。如：业务基本信息描述、权限控制描述、资源限制信息等；
 2. Folder：描述具体的分类信息。如：网易新闻的分类（热门、头条、财经等），百度贴吧的各类吧（头条、fun兵、故事趴等）。topic支持对Folder的关注和点赞。Folder路径命名规范见下方（路径命名规范）；
@@ -55,13 +55,15 @@ e)	话题列表（插入时间排序、更新时间排序）
 
 ## 系统总体构架
 
-![](http://empfs.bs2dl.yy.com/bWQtMTUyMDE1OTU3Nzk5MjVfMTUyMDE1OTU3Nzk5Mw.png)
-
+![](https://github.com/BenHaiXiao/topic/架构设计/design.jpg)
 ## 数据流图
 
-![](http://empfs.bs2dl.yy.com/bWQtMTUyMDE1OTY0MjkwMzlfMTUyMDE1OTY0MjkwMw.png)
+![](https://github.com/BenHaiXiao/topic/数据流图/query.jpg)
 
-![](http://empfs.bs2dl.yy.com/bWQtMTUyMDE1OTY1NzQxMDVfMTUyMDE1OTY1NzQxMA.png)
+![](https://github.com/BenHaiXiao/topic/数据流图/insert.jpg)
+
+![](https://github.com/BenHaiXiao/topic/数据流图/delete.jpg)
+
 
 ## 存储结构
 详细见 doc目录 话题存储结构
@@ -75,7 +77,7 @@ e)	话题列表（插入时间排序、更新时间排序）
 
 消息服务模块结构设计(基于kafaka)：
 
-![](http://empfs.bs2dl.yy.com/bWQtMTUyMDQzMjMyNzQzMzhfMTUyMDQzMjMyNzQzNw.png)
+![](https://github.com/BenHaiXiao/topic/消息中心/message.jpg)
 
 1. MessageDeliver：负责消息分发
 2. MessageBoxFinder：负责用户消息箱查找
@@ -83,4 +85,71 @@ e)	话题列表（插入时间排序、更新时间排序）
 4. FolderFinder：负责消息目录查找
 5. Folder：消息目录，用于消息分类
 6. MessageStore：负责消息存储
+
+
+### 消息中心数据结构模型设计
+
+1、	消息表（reply_message、notice_message）
+ 
+  ``` 
+    /**
+     * {
+     *     id:xxxxxx,      //消息ID
+     *     content:{        //消息内容
+     *         data:xxxxx,
+     *         ...
+     *     },
+     *     refer:{
+     *         type:xxxxxx, //参考类型
+     *         id:xxxxxx,   //参考ID
+     *         name:xxxxx,  //参考名称
+     *         desc:xxxxx,  //参考描述
+     *         targetType:xxxx,  //跳转ID类型
+     *         targetId:xxxx    //跳转ID
+     *     }
+     *     sender:{         //发件人
+     *        uid:xxxxxx,   //用户ID
+     *     },
+     *     recipients:[     //收件人列表
+     *         {
+     *             uid:xxxxxx,
+     *         }
+     *     ],
+     *     attachments:[
+     *          {
+     *              type:xxxxx,     //附件类型
+     *              ...             //附件内容
+     *          }
+     *     ],
+     *     source:{
+     *         type:xxxxxx,     //消息源类型
+     *         id:xxxxxx,       //消息源ID
+     *         name:xxxxxx,     //消息源名称
+     *         desc:xxxxxx      //消息源描述
+     *     },
+     *     status:xxxxxx,       //消息状态
+     *     timestamp:xxxxx         //发消息时间
+     * }
+     */
+    ```
+2、	消息状态表（box_status）
+
+    ```
+    /**
+     * {
+     *     uid:xxxxxxx
+     *     totalMsg:200	//总消息数
+     *     newMsg:100 //新消息数
+     *     notice:{
+     *         totalMsg:100 //总消息数
+     *         newMsg:200 //新消息数
+     *     }
+     *     reply:{
+     *         totalMsg:100 //总消息数
+     *         mewMsg:200 //新消息数
+     *     }
+     * }
+     */
+     ``` 
+
 

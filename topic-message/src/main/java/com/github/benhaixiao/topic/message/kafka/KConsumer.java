@@ -27,7 +27,7 @@ public class KConsumer {
     private static final Logger LOG = LoggerFactory.getLogger(KConsumer.class);
 
     private final ConsumerConnector consumer = Consumer.createJavaConsumerConnector(createConsumerConfig("172.19.103.87:2181","test"));
-    private final String topic = "sloth-event";
+    private final String topic = "topic-event";
 
     private static ConsumerConfig createConsumerConfig(String a_zookeeper, String a_groupId) {
         Properties props = new Properties();
