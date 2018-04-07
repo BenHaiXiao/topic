@@ -3,7 +3,7 @@
 类似今日头条、网易新闻、新浪新闻、YY贴吧等等这类产品具有内容（话题）层级分类、内容展示通常为简单的流状，不存在复杂的内容排版等特点。
 并且配套简单的评论、点赞、关注及消息通知等服务。这类型的产品具有一定的共性，特抽象出一套通用模型匹配，减少相关研发工作量，
 
-##  模型定义
+## 一、模型定义
 
 topic将内容（话题）的层级分类使用类文件系统的模型进行描述，模型图如下：
 ![image](https://github.com/BenHaiXiao/topic/blob/master/doc/design/1.png?raw=true)
@@ -53,9 +53,9 @@ e)	话题列表（插入时间排序、更新时间排序）
 00001-0000a-1acdedfafafdfda，表示0001目录下的000a子目录的acdedfafafdfda话题。
 0000c-00008-1ac23dfdfdfds3-21723dfdvdfd，表示000c目录下的0008子目录的ac23dfdfdfds3话题的1723dfdvdfd评论。
 
-## 系统总体构架
+## 二、系统总体构架
 ![image](https://github.com/BenHaiXiao/topic/blob/master/doc/design/design.png?raw=true)
-## 数据流图
+## 2.1 数据流图
 
 ![image](https://github.com/BenHaiXiao/topic/blob/master/doc/data-flow/query.png?raw=true)
 
@@ -64,15 +64,15 @@ e)	话题列表（插入时间排序、更新时间排序）
 ![image](https://github.com/BenHaiXiao/topic/blob/master/doc/data-flow/delete.png?raw=true)
 
 
-## 存储结构
+## 2.2 存储结构
 详细见 doc目录 话题存储结构
 
 
-##  话题接口
+##  2.3 话题接口
 
 详细见 doc目录 的topic接口协议.txt
 
-##  附属功能（topic-message消息服务）
+##  三、附属功能（topic-message消息服务）
 
 消息服务模块结构设计(基于kafaka)：
 
@@ -86,7 +86,7 @@ e)	话题列表（插入时间排序、更新时间排序）
 6. MessageStore：负责消息存储
 
 
-### 消息中心数据结构模型设计
+### 3.1 消息中心数据结构模型设计
 
 1、	消息表（reply_message、notice_message）
  
